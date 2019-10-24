@@ -23,6 +23,7 @@ namespace FP.Models
         public string Conference { get => _conference; set => _conference = value; }
         public string Arena { get => _arena; set => _arena = value; }
         public string ImageFileName {get => _imageFileName; set => _imageFileName = value;}
+        public bool IsSelected { get; set; } = false;
 
 
         public Team(string code, string fullName, string shortname, string nickName, string division, string conference, string arena)

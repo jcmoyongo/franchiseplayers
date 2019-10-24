@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FP.Views.SplashPage">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="{StaticResource ChaseBlue}">
+            <Image x:Name="splashImage" Source="fp_1024.png" HeightRequest="200" WidthRequest="200" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

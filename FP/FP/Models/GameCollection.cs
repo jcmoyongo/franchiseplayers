@@ -104,7 +104,7 @@ namespace FP.Models
                                 int day = int.Parse(dd[1], culture);
                                 int year = month >= 10 & month <= 12 ? 2019 : 2020;
                                 string currentGameDate = new DateTime(year, month, day).ToString("dddd, MMM dd, yyyy", culture);
-                                Schedule.Add(new Game(gameCode, awayTeam, homeTeam, currentGameDate.ToUpper(culture), time));
+                                Schedule.Add(new Game(gameCode, awayTeam, homeTeam, currentGameDate.ToUpper(culture), time, arena:game[7]));
                         }
                             catch (Exception ex)
                             {

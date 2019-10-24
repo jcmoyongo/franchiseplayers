@@ -1,0 +1,1 @@
+keytool -exportcert -alias androiddebugkey -keystore "C:\Users\jmoyongo\AppData\Local\Xamarin\Mono for Android\debug.keystore" | "C:\Program Files\openssl-0.9.8k_X64\bin\openssl" sha1 -binary |"C:\Program Files\openssl-0.9.8k_X64\bin\openssl" base64

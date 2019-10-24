@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Facebook.CoreKit;
+//using FacebookNat.CoreKit;
 using Foundation;
 using UIKit;
 
@@ -27,5 +28,19 @@ namespace FP.iOS
 
             return base.FinishedLaunching(app, options);
         }
+
+        public override void OnActivated(UIApplication uiApplication)
+        {
+            base.OnActivated(uiApplication);
+            AppEvents.ActivateApp();
+        }
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            //return base.OpenUrl(application, url, sourceApplication, annotation);
+            //We need to handle URLs by passing them to their own OpenUrl in order to make the SSO authentic
+            return ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication, annotation);
+        }
+
     }
 }

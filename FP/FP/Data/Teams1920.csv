@@ -1,0 +1,31 @@
+CODE,FULLNAME,SHORTNAME,NICKNAME,DIVISION,CONFERENCE,ARENA
+ATL,Atlanta Hawks,Atlanta,Hawks,Southeast,East,State Farm Arena
+BOS,Boston Celtics,Boston,Celtics,Atlantic,East,TD Garden
+BKN,Brooklyn Nets,Brooklyn,Nets,Atlantic,East,Barclays Center
+CHA,Charlotte Hornets,Charlotte,Hornets,Southeast,East,Spectrum Center
+CHI,Chicago Bulls,Chicago,Bulls,Central,East,United Center
+CLE,Cleveland Cavaliers,Cleveland,Cavaliers,Central,East,Rocket Mortgage FieldHouse
+DAL,Dallas Mavericks,Dallas,Mavericks,Southwest,West,American Airlines Center
+DEN,Denver Nuggets,Denver,Nuggets,Northwest,West,Pepsi Center
+DET,Detroit Pistons,Detroit,Pistons,Central,East,Little Caesars Arena
+GSW,Golden State Warriors,Golden State,Warriors,Pacific,West,Chase Center
+HOU,Houston Rockets,Houston,Rockets,Southwest,West,Toyota Center
+IND,Indiana Pacers,Indiana,Pacers,Central,East,Bankers Life Fieldhouse
+LAC,Los Angeles Clippers,LA Clippers,Clippers,Pacific,West,Staples Center
+LAL,Los Angeles Lakers,LA Lakers,Lakers,Pacific,West,Staples Center
+MEM,Memphis Grizzlies,Memphis,Grizzlies,Southwest,West,FedExForum
+MIA,Miami Heat,Miami,Heat,Southeast,East,American Airlines Arena
+MIL,Milwaukee Bucks,Milwaukee,Bucks,Central,East,Fiserv Forum
+MIN,Minnesota Timberwolves,Minnesota,Timberwolves,Northwest,West,Target Center
+NOP,New Orleans Pelicans,New Orleans,Pelicans,Southwest,West,Smoothie King Center
+NYK,New York Knicks,New York,Knicks,Atlantic,East,Madison Square Garden
+OKC,Oklahoma City Thunder,Oklahoma City,Thunder,Northwest,West,Chesapeake Energy Arena
+ORL,Orlando Magic,Orlando,Magic,Southeast,East,Amway Center
+PHI,Philadelphia 76ers,Philadelphia,76ers,Atlantic,East,Wells Fargo Center
+PHX,Phoenix Suns,Phoenix,Suns,Pacific,West,Talking Stick Resort Arena
+POR,Portland Trail Blazers,Portland,Trail Blazers,Northwest,West,Moda Center
+SAC,Sacramento Kings,Sacramento,Kings,Pacific,West,Golden 1 Center
+SAS,San Antonio Spurs,San Antonio,Spurs,Southwest,West,AT&T Center
+TOR,Toronto Raptors,Toronto,Raptors,Atlantic,East,Scotiabank Arena
+UTA,Utah Jazz,Utah,Jazz,Northwest,West,Vivint Smart Home Arena
+WAS,Washington Wizards,Washington,Wizards,Southeast,East,Capital One Arena

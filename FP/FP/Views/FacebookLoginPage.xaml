@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FP.ViewModels"
+             xmlns:local1="clr-namespace:FP.Views"
+             x:Class="FP.Views.FacebookLoginPage">
+    <ContentPage.BindingContext>
+        <local:LoginViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout
+        Orientation="Vertical"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand">
+            <Label
+            Text="Franchise Players"
+            HorizontalTextAlignment="Center" />
+            <local1:FacebookLoginButton
+            OnSuccess="{Binding OnFacebookLoginSuccessCommand }"
+            OnError="{Binding OnFacebookLoginErrorCommand }"
+            OnCancel="{Binding OnFacebookLoginCancelCommand }" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

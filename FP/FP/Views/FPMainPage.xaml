@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="FP" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sync="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:models="clr-namespace:FP.Models"
+             x:Class="FP.Views.FPMainPage">
+    <ContentPage.Resources>
+        <sync:SfRadioGroupKey x:Key="gameTime"  />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <models:BetterListView x:Name="ListViewGames" 
+                    ItemsSource="{Binding GroupedGames}"
+                    IsGroupingEnabled="True"
+                    GroupDisplayBinding="{Binding Key}"
+                    GroupShortNameBinding="{Binding Key}"
+                    ItemSelected="ListViewGames_ItemSelected" 
+                    HasUnevenRows="True" IsVisible="True">
+                <!-- Group Header -->
+                <models:BetterListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="{StaticResource primary}" Orientation="Horizontal">
+                                <Label Text="{Binding Key}" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                <Frame x:Name="frame" CornerRadius="1" Padding="0" OutlineColor="Blue" HasShadow="True" HorizontalOptions="EndAndExpand">
+                                    <Label Text="{Binding Count, StringFormat=' {0} games.'}" TextColor="{StaticResource primary}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </models:BetterListView.GroupHeaderTemplate>
+                <!--- Item Template -->
+                <models:BetterListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Appearing="Cell_OnAppearing">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.15*" />
+                                    <ColumnDefinition Width="0.4*" />
+                                    <ColumnDefinition Width="0.15*" />
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" HeightRequest="48" WidthRequest="48" HorizontalOptions="Start">
+                                    <Image.Source>
+                                        <FileImageSource File="{Binding AwayTeam.ImageFileName}"></FileImageSource>
+                                    </Image.Source>
+                                </Image>
+
+                                <sync:SfRadioGroup Grid.Column="1" x:Name="radioGroup" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" CheckedChanged="radioGroup_CheckedChanged">
+                                    <sync:SfRadioButton x:Name="awayTeam"  CheckedColor="DarkGray"  Text="{Binding AwayTeam.Code}"  StateChanged="Team_StateChanged"></sync:SfRadioButton>
+                                    <sync:SfRadioButton x:Name="homeTeam" CheckedColor="DarkGray"  Text="{Binding HomeTeam.Code}" StateChanged="Team_StateChanged"></sync:SfRadioButton>
+                                </sync:SfRadioGroup>
+
+                                <Image Grid.Column="2" HeightRequest="48" WidthRequest="48" HorizontalOptions="End">
+                                    <Image.Source>
+                                        <FileImageSource File="{Binding HomeTeam.ImageFileName}"></FileImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Frame Grid.Column="3" CornerRadius="0" Padding="0" Margin="15,10,20,10" x:Name="lineFrame" BackgroundColor="#29000000" HasShadow="False" WidthRequest="1" />
+                                <Label Grid.Column="4" x:Name="lblGame" Text="{Binding GameTime}" VerticalOptions="Center" HorizontalOptions="End" FontSize="16" TextColor="#555555"></Label>
+                                <!--<Button Grid.Row="1" x:Name="btnHidden" Text="HIDDEN" Clicked="Hidden_Clicked" CommandParameter="{Binding Key}" IsVisible="False" ></Button>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </models:BetterListView.ItemTemplate>
+            </models:BetterListView>
+            <Button x:Name="btnShare" Margin="0,30,0,0" VerticalOptions="EndAndExpand" BackgroundColor="#FF007DE6" 
+                    IsEnabled="True" TextColor="#FFFFFF" 
+                    Text="Share" FontSize="21" Clicked="Share_Clicked">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

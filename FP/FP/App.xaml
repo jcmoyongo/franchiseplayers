@@ -3,6 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FP.App">
     <Application.Resources>
+        <Color x:Key="ChaseBlue">#096df7</Color>
+        <Color x:Key="primary">#1f3354</Color>
+        <Color x:Key="secondary">#0d3a90</Color>
 
+        <DataTemplate x:Key="myTemplate">
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Image HeightRequest="30" WidthRequest="50" HorizontalOptions="Start">
+                        <Image.Source>
+                            <FileImageSource File="fp_120.png"></FileImageSource>
+                        </Image.Source>
+                    </Image>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding CityName}" TextColor="White" VerticalOptions="Center"></Label>
+                        <Label Text="{Binding NickName}"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+        <DataTemplate x:Key="optionTemplate">
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Label Margin="14,10" Text="{Binding GameDate}" FontSize="Large" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                    <Grid HorizontalOptions="EndAndExpand" Margin="14,0">
+                        <Label Text="○" FontSize="20" TextColor="{StaticResource MediumGray}" VerticalTextAlignment="Center"/>
+                        <Label Text="●" FontSize="20" TextColor="{StaticResource BrandColor}" IsVisible="{Binding IsSelected}" VerticalTextAlignment="Center" />
+                    </Grid>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
     </Application.Resources>
 </Application>

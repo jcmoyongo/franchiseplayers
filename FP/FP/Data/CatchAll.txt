@@ -1,0 +1,12 @@
+﻿Blue 1f3354
+
+ <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding AwayTeam.CityName}" FontSize="20" VerticalTextAlignment="Center" />
+                                    <Switch x:Name="Switch" IsToggled="False" Toggled="Switch_Toggled"  ></Switch>
+                                    <Label Text="{Binding HomeTeam.CityName}" FontSize="20" VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding GameTime}" FontSize="Large" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                                </StackLayout>
+                            </StackLayout>

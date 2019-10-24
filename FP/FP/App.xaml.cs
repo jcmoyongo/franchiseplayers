@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FP.Views;
+
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FP
@@ -9,9 +11,15 @@ namespace FP
     {
         public App()
         {
+            //MTUyMTAyQDMxMzcyZTMzMmUzME1mUUtaaU1MUHlNOEdOK2hBemtNN0ZkbDZ5RGNwaittNXVJNDVyWkZnSmM9
+            //Old Key - Mzc3MjBAMzEzNjJlMzMyZTMwTmJEeERTalBNaUlWaGQvVzFXamJKb3k2ckc1OXBhcnV2V0toWlZld25WRT0=
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTUyMTAyQDMxMzcyZTMzMmUzME1mUUtaaU1MUHlNOEdOK2hBemtNN0ZkbDZ5RGNwaittNXVJNDVyWkZnSmM9");
+
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new FPMainPage());
+            //Prism.Navigation.INavigationService.NavigationService.NavigateAsync("NavigationPage/MainPage?title=Facebook Native Login");
+            //MainPage = new NavigationPage(new FacebookLoginPage());
         }
 
         protected override void OnStart()
