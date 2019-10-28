@@ -59,16 +59,16 @@ namespace FP.Models
             }
         }
 
-        public ICommand ItemClickCommand
-        {
-            get
-            {
-                return new Command((item) =>
-                {
-                    CurrentItem = item as ItemGroup<string, Game>;
-                });
-            }
-        }
+        //public ICommand ItemClickCommand
+        //{
+        //    get
+        //    {
+        //        return new Command((item) =>
+        //        {
+        //            CurrentItem = item as ItemGroup<string, Game>;
+        //        });
+        //    }
+        //}
     }
   
 }

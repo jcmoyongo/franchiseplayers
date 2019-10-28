@@ -8,6 +8,7 @@ using Syncfusion.XForms.Buttons;
 using Plugin.Share;
 using Plugin.Share.Abstractions;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace FP.Views
 {
@@ -28,6 +29,7 @@ namespace FP.Views
         public FPMainPage()
         {
             BindingContext = _viewModel;
+
             InitializeComponent();
         }
 
@@ -81,20 +83,34 @@ namespace FP.Views
                 StringBuilder sb = new StringBuilder();
                 //sb.AppendLine($"***Franchise Players app generated test post @ { System.DateTime.Now}***");
                 //sb.AppendLine();
-                sb.AppendLine($"{game.GameDate}");
+                string winners=string.Empty;
                 foreach (var g in gameGroup)
                 {
                     //sb.AppendLine($"{g.Code}, {g.GameTime}, {g.Arena}");
                     Random random = new Random();
                     string winner = g.Code.Contains("MIA") ? "MIA" : random.Next(0, 1) == 0? g.HomeTeam.Code: g.AwayTeam.Code;
-                    sb.AppendLine($"{winner}");
+                    winners += $"{winner}-";
                 }
-                
-                var title = $"{game.GameDate}";
+                winners = winners.Substring(0, winners.Length - 1);
+                sb.AppendLine(winners);
+                var d = DateTime.Parse(game.GameDate);
+
+                var frenchDate = new DateTime(d.Year, d.Month, d.Day).ToString("dddd, MMM dd, yyyy", new CultureInfo("fr-FR", false)).ToUpper();
+                sb.Append(frenchDate);
+
+                var title = frenchDate;
                 var message = sb.ToString();
                 _ = Xamarin.Essentials.Clipboard.SetTextAsync(message);
                 await CrossShare.Current.Share(new ShareMessage { Text = message, Title = title }).ConfigureAwait(false);
-                Device.OpenUri(new Uri("fb://groups/franchiseplayers"));
+                try
+                {
+                    Device.OpenUri(new Uri("fb://groups/franchiseplayers"));
+                }
+                catch
+                {
+
+                }
+
                 //await DisplayAlert("Games", $"Games:  {}.", "OK");
 
                 //DisplayAlert("Selected", $"Game {game.Code} selected. Grouped {groupedGames.Count}. Game date {game.GameDate}. Key = {gameGroup.Key}", "OK");

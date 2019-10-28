@@ -41,7 +41,7 @@ namespace FP.Models
             Division = division;
             Conference = conference;
             Arena = arena;
-            ImageFileName = "blank.png"; // $"{nickName}.png"; //"blank.png";
+            ImageFileName = $"{nickName}.png"; //"blank.png";
         }
 
         public override string ToString()

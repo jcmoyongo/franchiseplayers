@@ -22,12 +22,15 @@ namespace FP.Views
         {
             base.OnAppearing();
 
-            await splashImage.ScaleTo(0.9, 500, Easing.Linear);
-            await splashImage.ScaleTo(0.6, 200, Easing.Linear);
-            await splashImage.ScaleTo(0.3, 200, Easing.Linear);
-            await splashImage.ScaleTo(0.0, 200, Easing.Linear);
+            await splashImage.ScaleTo(0.9, 500, Easing.Linear);//.ConfigureAwait(false);
+            await splashImage.ScaleTo(0.6, 200, Easing.Linear);//.ConfigureAwait(false);
+            await splashImage.ScaleTo(0.3, 200, Easing.Linear);//.ConfigureAwait(false);
+            await splashImage.ScaleTo(0.0, 200, Easing.Linear);//.ConfigureAwait(true);
 
-            App.Current.MainPage = new NavigationPage(new FPMainPage());
+            App.Current.MainPage = new NavigationPage(new MainPageTabbed());
+            //App.Current.MainPage = new NavigationPage(new FPMainPage());
+            //Navigation.InsertPageBefore(new FPMainPage(), this);
+            //await Navigation.PopAsync().ConfigureAwait(true);
         }
     }
 }

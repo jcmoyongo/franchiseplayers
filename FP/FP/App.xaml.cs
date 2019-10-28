@@ -17,7 +17,9 @@ namespace FP
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new FPMainPage());
+            //MainPage = new NavigationPage(new FPMainPage());
+            MainPage = new NavigationPage(new SplashPage());
+
             //Prism.Navigation.INavigationService.NavigationService.NavigateAsync("NavigationPage/MainPage?title=Facebook Native Login");
             //MainPage = new NavigationPage(new FacebookLoginPage());
         }

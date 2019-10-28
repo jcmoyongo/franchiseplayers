@@ -3,7 +3,6 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sync="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:models="clr-namespace:FP.Models"
              x:Class="FP.Views.FPMainPage">
     <ContentPage.Resources>
         <sync:SfRadioGroupKey x:Key="gameTime"  />
@@ -11,7 +10,7 @@
 
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <models:BetterListView x:Name="ListViewGames" 
+            <ListView x:Name="ListViewGames" 
                     ItemsSource="{Binding GroupedGames}"
                     IsGroupingEnabled="True"
                     GroupDisplayBinding="{Binding Key}"
@@ -19,7 +18,7 @@
                     ItemSelected="ListViewGames_ItemSelected" 
                     HasUnevenRows="True" IsVisible="True">
                 <!-- Group Header -->
-                <models:BetterListView.GroupHeaderTemplate>
+                <ListView.GroupHeaderTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout BackgroundColor="{StaticResource primary}" Orientation="Horizontal">
@@ -30,9 +29,9 @@
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
-                </models:BetterListView.GroupHeaderTemplate>
+                </ListView.GroupHeaderTemplate>
                 <!--- Item Template -->
-                <models:BetterListView.ItemTemplate>
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Appearing="Cell_OnAppearing">
                             <Grid>
@@ -66,8 +65,8 @@
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
-                </models:BetterListView.ItemTemplate>
-            </models:BetterListView>
+                </ListView.ItemTemplate>
+            </ListView>
             <Button x:Name="btnShare" Margin="0,30,0,0" VerticalOptions="EndAndExpand" BackgroundColor="#FF007DE6" 
                     IsEnabled="True" TextColor="#FFFFFF" 
                     Text="Share" FontSize="21" Clicked="Share_Clicked">
