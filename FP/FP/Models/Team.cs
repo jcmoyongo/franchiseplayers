@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace FP.Models
 {
-    public class Team
+    public class Team: INotifyPropertyChanged
     {
         private string _code;
         private string _fullName;
@@ -14,6 +16,7 @@ namespace FP.Models
         private string _conference;
         private string _imageFileName;
         private string _arena;
+        private bool? _isSelected;
 
         public string Code { get => _code; set => _code = value; }
         public string FullName { get => _fullName; set => _fullName = value; }
@@ -23,7 +26,15 @@ namespace FP.Models
         public string Conference { get => _conference; set => _conference = value; }
         public string Arena { get => _arena; set => _arena = value; }
         public string ImageFileName {get => _imageFileName; set => _imageFileName = value;}
-        public bool IsSelected { get; set; } = false;
+        public bool? IsSelected 
+        {
+            get { return _isSelected; }
+            set
+            {
+                _isSelected = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public Team(string code, string fullName, string shortname, string nickName, string division, string conference, string arena)
@@ -41,12 +52,18 @@ namespace FP.Models
             Division = division;
             Conference = conference;
             Arena = arena;
-            ImageFileName = $"{nickName}.png"; //"blank.png";
+            ImageFileName = "blank.png";//$"{nickName}.png";
         }
 
         public override string ToString()
         {
             return this.Code;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName]string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

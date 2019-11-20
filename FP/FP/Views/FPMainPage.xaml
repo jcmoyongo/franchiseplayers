@@ -42,35 +42,33 @@
                                     <ColumnDefinition Width="0.1*" />
                                     <ColumnDefinition Width="0.2*" />
                                 </Grid.ColumnDefinitions>
-
                                 <Image Grid.Column="0" HeightRequest="48" WidthRequest="48" HorizontalOptions="Start">
                                     <Image.Source>
                                         <FileImageSource File="{Binding AwayTeam.ImageFileName}"></FileImageSource>
                                     </Image.Source>
                                 </Image>
-
                                 <sync:SfRadioGroup Grid.Column="1" x:Name="radioGroup" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" CheckedChanged="radioGroup_CheckedChanged">
-                                    <sync:SfRadioButton x:Name="awayTeam"  CheckedColor="DarkGray"  Text="{Binding AwayTeam.Code}"  StateChanged="Team_StateChanged"></sync:SfRadioButton>
-                                    <sync:SfRadioButton x:Name="homeTeam" CheckedColor="DarkGray"  Text="{Binding HomeTeam.Code}" StateChanged="Team_StateChanged"></sync:SfRadioButton>
+                                    <sync:SfRadioButton x:Name="awayTeam" CheckedColor="DarkGray" Text="{Binding AwayTeam.Code}" StateChanged="Team_StateChanged"></sync:SfRadioButton>
+                                    <sync:SfRadioButton x:Name="homeTeam" CheckedColor="DarkGray" Text="{Binding HomeTeam.Code}" StateChanged="Team_StateChanged"></sync:SfRadioButton>
                                 </sync:SfRadioGroup>
-
                                 <Image Grid.Column="2" HeightRequest="48" WidthRequest="48" HorizontalOptions="End">
                                     <Image.Source>
                                         <FileImageSource File="{Binding HomeTeam.ImageFileName}"></FileImageSource>
                                     </Image.Source>
                                 </Image>
                                 <Frame Grid.Column="3" CornerRadius="0" Padding="0" Margin="15,10,20,10" x:Name="lineFrame" BackgroundColor="#29000000" HasShadow="False" WidthRequest="1" />
-                                <Label Grid.Column="4" x:Name="lblGame" Text="{Binding GameTime}" VerticalOptions="Center" HorizontalOptions="End" FontSize="16" TextColor="#555555"></Label>
+                                <Label Grid.Column="4" x:Name="lblGameTime" Text="{Binding GameTime}" VerticalOptions="Center" HorizontalOptions="End" FontSize="16" TextColor="#555555"></Label>
                                 <!--<Button Grid.Row="1" x:Name="btnHidden" Text="HIDDEN" Clicked="Hidden_Clicked" CommandParameter="{Binding Key}" IsVisible="False" ></Button>-->
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Button x:Name="btnShare" Margin="0,30,0,0" VerticalOptions="EndAndExpand" BackgroundColor="#FF007DE6" IsEnabled="True" TextColor="#FFFFFF" Text="Share" FontSize="21" Clicked="Share_Clicked"/>
+
+                </ListView.Footer>
             </ListView>
-            <Button x:Name="btnShare" Margin="0,30,0,0" VerticalOptions="EndAndExpand" BackgroundColor="#FF007DE6" 
-                    IsEnabled="True" TextColor="#FFFFFF" 
-                    Text="Share" FontSize="21" Clicked="Share_Clicked">
-            </Button>
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
